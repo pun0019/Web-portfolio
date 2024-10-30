@@ -18,6 +18,7 @@
             font-family: Arial, sans-serif;
             flex-direction: column;
             overflow: hidden;
+            background-color: black;
         }
 
         .calculator {
@@ -126,13 +127,21 @@
             color: #fff;
         }
 
-        /* Media Query for screens smaller than 480px */
+
         @media (max-width: 480px) {
 
             body {
 
-                scale: 0.7;
+
                 overflow: hidden;
+            }
+
+            .calculator {
+                scale: 0.75;
+                display: relative;
+                justify-content: center;
+                align-items: center;
+                transform: translate(0, -10%);
             }
 
             .display {
@@ -173,9 +182,13 @@
             position: absolute;
             bottom: 20px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             margin: 0;
+            margin-top: 20px;
+            justify-content: center;
         }
+
+        
     </style>
 </head>
 

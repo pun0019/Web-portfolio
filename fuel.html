@@ -7,7 +7,7 @@
     <title>Fuel Consumption Calculator</title>
     <style>
         body {
-            background-color: #ff6b6b;
+            background-color: black;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -179,14 +179,13 @@
 
         @media only screen and (max-width: 480px) {
 
-            body {
 
-                scale: 0.9;
-            }
 
             .container {
                 width: 100%;
                 padding: 10px;
+                scale: 0.9;
+                transform: translateY(-20%);
             }
 
             form {
@@ -203,14 +202,16 @@
             }
 
             .goback {
-                transform: translateX(-13%);
-                margin-top: 100px;
+                transform: translate(-10%, -70%);
+                margin-top: 80px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
             }
 
 
+            
         }
     </style>
 </head>

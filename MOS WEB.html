@@ -16,6 +16,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-color: black;
         }
 
         textarea {
@@ -116,6 +117,7 @@
                 text-align: center;
                 width: 300px;
                 font-size: 50px;
+                margin: 20px;
             }
 
             body {
@@ -131,7 +133,7 @@
                 max-height: 80px;
                 min-width: 360px;
                 min-height: 80px;
-                margin: 10px;
+                margin: 5px;
                 font-size: 16px;
                 padding: 8px;
                 border-radius: 8px;
@@ -177,7 +179,7 @@
             }
 
             .goback {
-                transform: translateX(-13%);
+                transform: translate(-13%, -50%);
                 margin-top: 100px;
                 display: flex;
                 justify-content: center;
@@ -186,8 +188,20 @@
 
             .cont {
                 width: 350px;
-                margin-top: 20px;
-                height: 100px;
+                margin-top: 10px;
+                height: 50px;
+                transform: translateY(-55%);
+            }
+
+
+            .big1{
+                transform: translateY(-15%);
+
+            }
+
+            .big2{
+                transform: translateY(-35%);
+
             }
 
         }
@@ -197,14 +211,14 @@
 
 <body>
     <h1>Morse Code Translator</h1>
-    <!-- กล่องข้อความสำหรับแปลจากภาษาอังกฤษเป็นรหัสมอร์ส -->
-    <div class="text1"><textarea id="inputText" placeholder="Enter text to translate"></textarea></div>
-    <div class="but1"> <button onclick="translateToMorse()">Translate to Morse</button></div>
-    <!-- กล่องข้อความสำหรับแปลจากรหัสมอร์สเป็นภาษาอังกฤษ -->
-    <div class="text2"><textarea id="morseInput" placeholder="Enter Morse code to translate"></textarea></div>
-    <div class="but2"> <button onclick="translateToEnglish()">Translate to English</button></div>
-
-    <!-- แสดงผลลัพธ์ -->
+    <div class="big1">
+        <div class="text1"><textarea id="inputText" placeholder="Enter text to translate"></textarea></div>
+        <div class="but1"> <button onclick="translateToMorse()">Translate to Morse</button></div>
+    </div>
+    <div class="big2">
+        <div class="text2"><textarea id="morseInput" placeholder="Enter Morse code to translate"></textarea></div>
+        <div class="but2"> <button onclick="translateToEnglish()">Translate to English</button></div>
+    </div>
     <div class="cont">
         <div id="output"></div>
     </div>
