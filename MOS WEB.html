@@ -6,8 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morse Code Translator</title>
 
-
     <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: fixed;
+        }
+
         body {
             overflow: hidden;
             background-image: url("https://wallpapercat.com/w/full/9/5/a/945731-3840x2160-desktop-4k-matte-black-wallpaper-image.jpg");
@@ -15,6 +25,7 @@
             background-position: center;
             background-repeat: no-repeat;
             justify-items: center;
+            touch-action: none;
         }
 
         textarea {
@@ -27,17 +38,7 @@
             padding: 10px;
         }
 
-
         .but1 {
-            margin-top: 10px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            scale: 1.4;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        .but2 {
             margin-top: 10px;
             border-radius: 10px;
             display: flex;
@@ -56,7 +57,6 @@
         }
 
         button:hover {
-
             transform: scale(1.1);
             background-color: greenyellow;
             font-weight: bold;
@@ -68,7 +68,6 @@
         }
 
         .cont {
-
             width: 450px;
             height: 100px;
             background-color: white;
@@ -80,10 +79,12 @@
 
         h1 {
             text-align: center;
-            margin-top: 35px;
             font-size: 60px;
             font-family: 'Courier New', Courier, monospace;
             color: #fff;
+            position: absolute;
+            width: 100%;
+            top: 35px;
 
         }
 
@@ -99,26 +100,38 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-            h2 {
-                font-size: 36px;
-                color: #fff;
-            }
+        }
 
-            h2:hover {
-                font-size: 36px;
-                color: red;
-            }
+        h2 {
+            font-size: 36px;
+            color: #fff;
+        }
+
+        h2:hover {
+            color: red;
         }
 
         .delline {
             text-decoration-line: none;
         }
 
+        .all {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+        }
 
 
-        @media (max-width: 480px) {
+        @media (max-width :480px) {
 
             * {
                 padding: 0px;
@@ -126,19 +139,25 @@
                 overflow: hidden;
             }
 
+            .all {
+                position: fixed;
+                overflow: hidden;
+            }
 
             h1 {
-                width: 500px;
-                font-size: 50px;
-                margin: 20px;
+                font-size: 40px;
+                margin: 10px 0;
+                width: 100%;
+                position: absolute;
+                top: 20px;
             }
 
             body {
-                min-height: 100vh;
-                width: 100vw;
-                margin: 0;
-                padding: 0;
-                justify-content: center;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                touch-action: none;
             }
 
             textarea {
@@ -150,9 +169,6 @@
                 font-size: 16px;
                 padding: 8px;
                 border-radius: 8px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
 
 
@@ -163,7 +179,7 @@
             }
 
             button {
-                margin-top: 20px;
+                margin-top: 20 px;
                 width: auto;
                 height: 20;
 
@@ -176,39 +192,38 @@
                 height: auto;
                 min-height: 60px;
                 font-size: 24px;
-                margin-top: 200px auto;
+                margin-top: 20px;
                 padding: 8px;
+
             }
 
             .text1,
             .text2 {
-                margin-bottom: 20px;
-                margin-top: 10px;
+
+                margin-bottom: 20 px;
+                margin-top: 10 px;
 
             }
 
             .goback {
                 transform: translate(-13%, -50%);
                 margin-bottom: 60px;
-                
+
             }
 
             .cont {
-                width: 350px;
-                margin-top: 10px;
-                height: 50px;
+
+                width: 350 px;
+                margin-top: 10 px;
+                height: 50 px;
+
             }
 
             .bigbox1 {
-                
-                margin:0px;
-            }
 
-            .bigbox2 {
-                
-                margin:0px;
-            }
+                margin: 0 px;
 
+            }
         }
     </style>
 
@@ -216,18 +231,15 @@
 
 <body>
     <h1>Morse Code Translator</h1>
+    <div class="all">
+        <div class="bigbox1">
+            <div class="text2"><textarea id="inputText" placeholder="Enter text to translate"></textarea></div>
+            <div class="but1"> <button onclick="translateToMorse()">Translate to Morse</button></div>
+        </div>
 
-    <div class="bigbox1">
-        <div class="text2"><textarea id="inputText" placeholder="Enter text to translate"></textarea></div>
-        <div class="but1"> <button onclick="translateToMorse()">Translate to Morse</button></div>
-    </div>
-    <div class="bigbox2">
-        <div class="text2"><textarea id="morseInput" placeholder="Enter Morse code to translate"></textarea></div>
-        <div class="but2"> <button onclick="translateToEnglish()">Translate to English</button></div>
-    </div>
-
-    <div class="cont">
-        <div id="output"></div>
+        <div class="cont">
+            <div id="output"></div>
+        </div>
     </div>
 
 
@@ -247,12 +259,6 @@
             // Add numbers and punctuation if needed
         };
 
-        // สร้าง object สำหรับแปลงจากรหัสมอร์สเป็นตัวอักษร
-        const englishCode = Object.entries(morseCode).reduce((acc, [letter, code]) => {
-            acc[code] = letter;
-            return acc;
-        }, {});
-
         function translateToMorse() {
             const inputText = document.getElementById('inputText').value.toUpperCase();
             let output = '';
@@ -267,18 +273,6 @@
 
             document.getElementById('output').innerText = output.trim();
         }
-
-        function translateToEnglish() {
-            const morseInput = document.getElementById('morseInput').value.trim();
-            const words = morseInput.split(' / ');
-
-            let output = words.map(word => {
-                return word.split(' ').map(code => englishCode[code] || '').join('');
-            }).join(' ');
-
-            document.getElementById('output').innerText = output;
-        }
-
     </script>
 </body>
 
