@@ -37,15 +37,17 @@
         }
 
         .goback {
-            bottom: 0;
-            right: 0;
-            margin: 25px;
-            text-align: center;
-            width: 300px;
-            height: 100px;
-            background-color: #333333cb;
-            border-radius: 16px;
-            border: 2px solid white;
+            position: fixed;
+            width: 100px;
+            height: 60px;
+            background-color: #333;
+            border: solid white 1px;
+            right: 20px;
+            bottom: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
             h1 {
@@ -178,7 +180,7 @@
 
                 font-size: 30px;
             }
-            
+
             .goback {
                 transform: translate(-10%, -70%);
                 margin-top: 80px;
@@ -191,9 +193,6 @@
 
 
         }
-
-
-        
     </style>
 </head>
 
@@ -223,7 +222,7 @@
     <div class="bigback">
         <div class="goback">
             <a href="index.html" class="delline">
-                <h1>กลับสู่หน้าหลัก</h1>
+                <h1>X</h1>
             </a>
         </div>
     </div>
